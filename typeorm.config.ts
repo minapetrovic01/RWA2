@@ -7,6 +7,7 @@ export const typeOrmConfig: ConnectionOptions = {
     port: 5432,
     username: 'postgres',
     password: 'root',
+    database: 'platform',
     entities: [],
     synchronize: true,
 }
