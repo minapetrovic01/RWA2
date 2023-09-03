@@ -1,3 +1,8 @@
+import { Alternative } from "src/entities/alternative";
+import { Criteria } from "src/entities/criteria";
+import { Decision } from "src/entities/decision";
+import { Subscription } from "src/entities/subscription";
+import { User } from "src/entities/user";
 import { ConnectionOptions } from "typeorm";
 
 
@@ -8,7 +13,7 @@ export const typeOrmConfig: ConnectionOptions = {
     username: 'postgres',
     password: 'root',
     database: 'platform',
-    entities: [],
+    entities: [Alternative,Criteria,Decision,Subscription,User],
     synchronize: true,
 }
     
