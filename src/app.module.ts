@@ -8,9 +8,10 @@ import { CriteriaModule } from './criteria/criteria.module';
 import { DecisionModule } from './decision/decision.module';
 import { SubscriptionModule } from './subscription/subscription.module';
 import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(typeOrmConfig), AlternativeModule, CriteriaModule, DecisionModule, SubscriptionModule, UserModule],
+  imports: [TypeOrmModule.forRoot(typeOrmConfig), AlternativeModule, CriteriaModule, DecisionModule, SubscriptionModule, UserModule, AuthModule],
   controllers: [AppController],
   providers: [AppService],
 })
