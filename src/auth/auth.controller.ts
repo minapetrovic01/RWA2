@@ -9,20 +9,20 @@ export class AuthController {
 
     constructor(private authService: AuthService) { }
 
-    // @Post('signup')
-    // signUp(@Body() signUpDto: UserDto) {
-    //     return this.authService.signUp(signUpDto);
-    // }
+    @Post('signup')
+    signUp(@Body() signUpDto: UserDto) {
+        return this.authService.signUp(signUpDto);
+    }
 
-    // @Post('signin')
-    // signIn(@Body() signInDto: AuthSignInUserDto) {
-    //     return this.authService.signIn(signInDto);
-    // }
+    @Post('signin')
+    signIn(@Body() signInDto: AuthSignInUserDto) {
+        return this.authService.signIn(signInDto);
+    }
 
-    // @UseGuards(AuthGuard('jwt'))
-    // @Get('guardtest')
-    // getUser(@Req() req : Request) {
-    //     return req.user;
-    // }
+    @UseGuards(AuthGuard('jwt'))
+    @Get('guardtest')
+    getUser(@Req() req : Request) {
+        return req.body;
+    }
 
 }
