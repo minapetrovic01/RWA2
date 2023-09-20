@@ -19,7 +19,6 @@ export class AuthController {
         return this.authService.signIn(signInDto);
     }
 
-    @UseGuards(AuthGuard('jwt'))
     @Get('guardtest')
     getUser(@Req() req : Request) {
         return req.body;

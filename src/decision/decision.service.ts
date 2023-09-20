@@ -44,8 +44,20 @@ export class DecisionService {
         return await this.decisionRepository.remove(decision);
     }
     getByNameOfAlternative(name: string): Decision[] | Promise<Decision[]> {
+        // const decisions = this.decisionRepository.find({
+        //     relations: ['alternatives'],
+        // }).then((decisions) => {
+        //     const decisionsWithAlternative = decisions.filter((decision) => {
+        //         const alternative = decision.alternatives.find((alternative) => {
+        //             return alternative.name === name;
+        //         });
+        //         return alternative !== undefined;
+        //     });
+        //     return decisionsWithAlternative;
+        // });
+        // return decisions;
         const decisions = this.decisionRepository.find({
-            relations: ['alternatives'],
+            relations: ['alternatives', 'criterias'], 
         }).then((decisions) => {
             const decisionsWithAlternative = decisions.filter((decision) => {
                 const alternative = decision.alternatives.find((alternative) => {

@@ -13,9 +13,9 @@ export class AuthService {
         private jwtService: JwtService
     ) { }
 
-    async validateUser(email: string, pass: string): Promise<any> {
+    async validateUser(email: string, id: number): Promise<any> {
         const user = await this.userService.getByEmail(email);
-        if (user && user.password === pass) {
+        if (user && user.id === id) {
             const { password, ...result } = user;
             return result;
         }
@@ -38,6 +38,9 @@ export class AuthService {
         if(user == null) {
             throw new NotFoundException();
         }
+        console.log(signInDto);
+        console.log(user.password);
+        console.log(signInDto.password);
         const isPasswordValid = signInDto.password === user.password;
         if (!isPasswordValid) {
             throw new UnauthorizedException();
