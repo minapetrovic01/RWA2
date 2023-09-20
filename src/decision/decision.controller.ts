@@ -19,6 +19,10 @@ export class DecisionController {
     async getByNameOfAlternative(@Param('name')name: string):Promise<Decision[]> {
         return await this.decisionService.getByNameOfAlternative(name);
     }
+    @Get('/owner/:userId')
+    async getByOwner(@Param('userId',ParseIntPipe)userId: number):Promise<Decision[]> {
+        return await this.decisionService.getByOwner(userId);
+    }
     @Post()
     async create(@Body() decisionDto: DecisionDto, @Query('userId') userId: number):Promise<Decision> {
         return await this.decisionService.create(decisionDto, userId);

@@ -57,5 +57,13 @@ export class DecisionService {
         });
         return decisions;
     }
+    getByOwner(userId: number): Decision[] | Promise<Decision[]> {
+        const user = this.userService.getById(userId);
+        const decisions = this.decisionRepository.find({
+            where: { owner: {id: userId} },
+            relations: ['alternatives','criterias'],
+        });
+        return decisions;
+    }
 
 }
