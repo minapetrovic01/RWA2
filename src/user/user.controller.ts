@@ -17,7 +17,6 @@ export class UserController {
     getAll(): Promise<User[]> {
         return this.userService.getAll();
     }
-    // @UseGuards(JwtAuthGuard)
     @Get(':id')
     getById(@Param('id', ParseIntPipe)id: number):Promise<User> {
         return this.userService.getById(id);
